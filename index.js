@@ -1,4 +1,4 @@
-let todo_states ={"0":0, "1":0, "2":0, "3":0};
+let todo_states = [0, 0, 0, 0];
 
 //add event listeners
 document.getElementById("todoContainer").addEventListener("click", function(event){
@@ -13,9 +13,10 @@ document.getElementById("todoContainer").addEventListener("click", function(even
         removeTodoItem(index);
     }
     if(event.target.id === "checkbox"){
+        console.log(`${todo_states} and index ${index}`);
         let contents = document.querySelectorAll(".listItemContent");
         let content = contents[index.toString()];
-        let curr_content_html =content.innerHTML;
+        let curr_content_html = content.innerHTML;
         if(todo_states[index] === 0){
             content.innerHTML = "<del>"+curr_content_html+"</del>";
             todo_states[index] = 1;
@@ -39,21 +40,24 @@ function addTodoItem(){
 
     //paragraph
     const newP = document.createElement('p');
+    newP.classList.add("listItemContent");
     let content = document.getElementById("contentText").value;
     newP.textContent = content;
 
 
     //checkbox
     const newCheckBox = document.createElement('input');
-    newCheckBox.classList.add("checkbox");
+    //newCheckBox.classList.add("checkbox");
+    newCheckBox.id = "checkbox"
     newCheckBox.type = "checkbox";
     newCheckBox.value = "check";
 
     //button
     const newRemoveBtn = document.createElement('button');
-    newRemoveBtn.classList.add("removeBtn");
+    //newRemoveBtn.classList.add("removeBtn");
+    newRemoveBtn.id = "removeItemBtn"
     newRemoveBtn.type = "button";
-    newRemoveBtn.textContent = "remove";
+    newRemoveBtn.textContent = "X";
 
     //add all todo list elements to the list item
     newListItem.appendChild(newP);
@@ -67,6 +71,7 @@ function addTodoItem(){
     // Clear text box field after adding task
     document.getElementById("contentText").value = '';
 
+    todo_states.push(0);
 }
 
 /**
@@ -85,4 +90,6 @@ function removeTodoItem(index){
     } else {
       console.log(`it didn't work ${index} ${JSON.stringify(items)} ${items}`);
     }
+
+    todo_states.splice(index, 1);
 }
