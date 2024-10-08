@@ -7,7 +7,38 @@
   <title>TODO</title>
 </head>
 <body>
-    <h1>To-Do Items</h1>
+    <div id="listContainer">
+        <h1>My To-Do Items</h1>
+        <ol>
+            <li>
+                <p class="listItemContent">Content A</p>
+                <input type="checkbox" name="a" value="check" class="checkbox">
+                <button type="button" class="removeBtn">remove</button>
+            </li>
+            <li>
+                <p class="listItemContent">Content B</p>
+                <input type="checkbox" name="b" value="check" class="checkbox">
+                <button type="button" class="removeBtn">remove</button>
+            </li>
+            <li>
+                <p class="listItemContent">Content C</p>
+                <input type="checkbox" name="c" value="check" class="checkbox">
+                <button type="button" class="removeBtn">remove</button>
+            </li>
+            <li>
+                <p class="listItemContent">Content D</p>
+                <input type="checkbox" name="d" value="check" class="checkbox">
+                <button type="button" class="removeBtn">remove</button>
+            </li>
+        </ol>
+    </div>
+    <div id="addContainer">
+        <form id="submitForm">
+            Add new item:
+            <input type="text" name="content" id="submitContent">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 
     <script src="./index.js"></script>
 </body>

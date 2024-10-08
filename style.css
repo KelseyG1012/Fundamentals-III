@@ -1,0 +1,51 @@
+body {
+    flex: auto;
+    height: 100%;
+    background-image: url('./High-Outer-Space-Wallpapers.jpg');
+    background-size: cover;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    align-items: center;
+}
+h1 {
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+#listContainer {
+  background-color: #f4f4f4;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 50vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#addContainer {
+    background-color: #f4f4f4;
+    width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ol {
+    justify-content: space-between;
+}
+
+li {
+    border-style: solid;
+    border-color: black;
+    border-width: 0.1;
+    background-color: blueviolet;
+}
+
+.removeBtn {
+
+}
+
+.addItemBtn {
+
+}
+
+.checkbox {
+
+}
