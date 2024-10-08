@@ -1,24 +1,23 @@
 
 
 //add event listener for form
-
 document.getElementById("todoContainer").addEventListener("click", function(event){
     if (event.target.id === "addItemBtn") {
         //console.log("add item");
         addTodoItem();
     }
-    if(event.target.id === "removeBtn"){
+    if(event.target.id === "removeItemBtn"){
         //console.log("remove item");
         const parent = event.target.parentElement;
         const allListItems = Array.from(document.querySelectorAll("#todoList li"));
-        const index = allListItems.indexOf(parent) + 1; 
+        const index = allListItems.indexOf(parent);
 
         removeTodoItem(index);
     }
 });
 
 /**
- *Takes in a string, content and appends a TODO to the listContainer.
+ *Takes in a string, content and appends a TODO to the todoList.
  */
 function addTodoItem(){
     let orderedList = document.getElementById("todoList");
@@ -54,10 +53,23 @@ function addTodoItem(){
     orderedList.appendChild(newListItem);
 }
 
-
+/**
+ * Takes in int index, the number of the list item to remove from todoList
+ */
 function removeTodoItem(index){
-    console.log(index);
-    let listItem = document.getElementById("listContainer").children[index];
+    //let orderedList = document.querySelectorAll("todoList");
+    let orderedList = document.getElementById("todoList");
 
+    let items = orderedList.querySelectorAll("li");
+    let item = items[index.toString()];
+    //console.log(`Index is ${index} with contents ${orderedList[index]}`);
+    if (item) {
+      console.log(`Index is ${index} with contents ${JSON.stringify(item)}`);
+      orderedList.removeChild(item);
+    } else {
+      console.log(`it didn't work ${index} ${JSON.stringify(items)} ${items}`);
+    }
 }
-
+// newRemoveBtn.addEventListener('click', () => {
+//   orderedList.removeChild(newListItem);
+// });
