@@ -1,18 +1,21 @@
 
 
-//add event listener for form
+//add event listeners
 document.getElementById("todoContainer").addEventListener("click", function(event){
     if (event.target.id === "addItemBtn") {
-        //console.log("add item");
         addTodoItem();
     }
     if(event.target.id === "removeItemBtn"){
-        //console.log("remove item");
         const parent = event.target.parentElement;
         const allListItems = Array.from(document.querySelectorAll("#todoList li"));
         const index = allListItems.indexOf(parent);
 
         removeTodoItem(index);
+    }
+    if(event.target.id === "checkbox"){
+        let content = document.getElementByClassName("listItemContent");
+        let cross =document.createElement("del");
+        content.appendChild(cross);
     }
 });
 
@@ -51,6 +54,9 @@ function addTodoItem(){
 
     //add list item to the todo list
     orderedList.appendChild(newListItem);
+
+    // Clear text box field after adding task
+    
 }
 
 /**
