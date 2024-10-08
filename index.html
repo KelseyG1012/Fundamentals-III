@@ -7,35 +7,37 @@
   <title>TODO</title>
 </head>
 <body>
-    <div id="listContainer">
-        <h1>My To-Do Items</h1>
-        <ol id="todoList">
-            <li>
-                <p class="listItemContent">Content A</p>
-                <input type="checkbox" value="check" class="checkbox">
-                <button type="button" class="removeBtn">remove</button>
-            </li>
-            <li>
-                <p class="listItemContent">Content B</p>
-                <input type="checkbox" name="b" value="check" class="checkbox">
-                <button type="button" class="removeBtn">remove</button>
-            </li>
-            <li>
-                <p class="listItemContent">Content C</p>
-                <input type="checkbox" name="c" value="check" class="checkbox">
-                <button type="button" class="removeBtn">remove</button>
-            </li>
-            <li>
-                <p class="listItemContent">Content D</p>
-                <input type="checkbox" name="d" value="check" class="checkbox">
-                <button type="button" class="removeBtn">remove</button>
-            </li>
-        </ol>
-    </div>
-    <div id="addContainer">
-        <p>Add new item:</p>
-        <input type="text" id="contentText">
-        <button type="submit" id="addItemBtn">Submit</button>
+    <div id="todoContainer">
+        <div id="listContainer">
+            <h1>My To-Do Items</h1>
+            <ol id="todoList">
+                <li>
+                    <p class="listItemContent">Content A</p>
+                    <input type="checkbox" value="check" class="checkbox">
+                    <button type="button" id="removeBtn">remove</button>
+                </li>
+                <li>
+                    <p class="listItemContent">Content B</p>
+                    <input type="checkbox" name="b" value="check" class="checkbox">
+                    <button type="button" id="removeBtn">remove</button>
+                </li>
+                <li>
+                    <p class="listItemContent">Content C</p>
+                    <input type="checkbox" name="c" value="check" class="checkbox">
+                    <button type="button" id="removeBtn">remove</button>
+                </li>
+                <li>
+                    <p class="listItemContent">Content D</p>
+                    <input type="checkbox" name="d" value="check" class="checkbox">
+                    <button type="button" id="removeBtn">remove</button>
+                </li>
+            </ol>
+        </div>
+        <div id="addContainer">
+            <p>Add new item:</p>
+            <input type="text" id="contentText">
+            <button type="submit" id="addItemBtn">Submit</button>
+        </div>
     </div>
 
     <script defer src="./index.js"></script>

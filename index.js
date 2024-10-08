@@ -2,24 +2,33 @@
 
 //add event listener for form
 
-document.getElementById("addItemBtn").addEventListener("click", addTodoItem);
+document.getElementById("todoContainer").addEventListener("click", function(event){
+    if (event.target.id === "addItemBtn") {
+        //console.log("add item");
+        addTodoItem();
+    }
+    if(event.target.id === "removeBtn"){
+        //console.log("remove item");
+        const parent = event.target.parentElement;
+        const allListItems = Array.from(document.querySelectorAll("#todoList li"));
+        const index = allListItems.indexOf(parent) + 1; 
+
+        removeTodoItem(index);
+    }
+});
 
 /**
  *Takes in a string, content and appends a TODO to the listContainer.
  */
 function addTodoItem(){
-    let content = document.getElementById("contentText").value;
-    console.log(`Starting addTodoItem function with content: ${content}`);
     let orderedList = document.getElementById("todoList");
 
-    //create all the elements needed for a todo item
+    //list item to hold paragraph, checkbox, button
     const newListItem = document.createElement('li');
-
-    //add the relevant fields for each todo item property
-    //newItem.textContent = content;
 
     //paragraph
     const newP = document.createElement('p');
+    let content = document.getElementById("contentText").value;
     newP.textContent = content;
 
 
@@ -46,7 +55,9 @@ function addTodoItem(){
 }
 
 
-function removeTodoItem(){
+function removeTodoItem(index){
+    console.log(index);
+    let listItem = document.getElementById("listContainer").children[index];
 
 }
 
