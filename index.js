@@ -1,21 +1,30 @@
-
+let todo_states ={"0":0, "1":0, "2":0, "3":0};
 
 //add event listeners
 document.getElementById("todoContainer").addEventListener("click", function(event){
+    const parent = event.target.parentElement;
+    const contentList = Array.from(document.querySelectorAll("#todoList li"));
+    const index = contentList.indexOf(parent);
+
     if (event.target.id === "addItemBtn") {
         addTodoItem();
     }
     if(event.target.id === "removeItemBtn"){
-        const parent = event.target.parentElement;
-        const allListItems = Array.from(document.querySelectorAll("#todoList li"));
-        const index = allListItems.indexOf(parent);
-
         removeTodoItem(index);
     }
     if(event.target.id === "checkbox"){
-        let content = document.getElementByClassName("listItemContent");
-        let cross =document.createElement("del");
-        content.appendChild(cross);
+        let contents = document.querySelectorAll(".listItemContent");
+        let content = contents[index.toString()];
+        let curr_content_html =content.innerHTML;
+        if(todo_states[index] === 0){
+            content.innerHTML = "<del>"+curr_content_html+"</del>";
+            todo_states[index] = 1;
+        } else if(todo_states[index] === 1){
+            let new_content_html = curr_content_html.replace("<del>", '');
+            new_content_html = new_content_html.replace("</del>", "");
+            content.innerHTML = new_content_html;
+            todo_states[index] = 0;
+        }
     }
 });
 
@@ -56,7 +65,8 @@ function addTodoItem(){
     orderedList.appendChild(newListItem);
 
     // Clear text box field after adding task
-    
+    document.getElementById("contentText").value = '';
+
 }
 
 /**
@@ -76,6 +86,3 @@ function removeTodoItem(index){
       console.log(`it didn't work ${index} ${JSON.stringify(items)} ${items}`);
     }
 }
-// newRemoveBtn.addEventListener('click', () => {
-//   orderedList.removeChild(newListItem);
-// });
