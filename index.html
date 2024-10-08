@@ -9,10 +9,10 @@
 <body>
     <div id="listContainer">
         <h1>My To-Do Items</h1>
-        <ol>
+        <ol id="todoList">
             <li>
                 <p class="listItemContent">Content A</p>
-                <input type="checkbox" name="a" value="check" class="checkbox">
+                <input type="checkbox" value="check" class="checkbox">
                 <button type="button" class="removeBtn">remove</button>
             </li>
             <li>
@@ -33,13 +33,11 @@
         </ol>
     </div>
     <div id="addContainer">
-        <form id="submitForm">
-            Add new item:
-            <input type="text" name="content" id="submitContent">
-            <input type="submit" value="Submit">
-        </form>
+        <p>Add new item:</p>
+        <input type="text" id="contentText">
+        <button type="submit" id="addItemBtn">Submit</button>
     </div>
 
-    <script src="./index.js"></script>
+    <script defer src="./index.js"></script>
 </body>
 </html>
